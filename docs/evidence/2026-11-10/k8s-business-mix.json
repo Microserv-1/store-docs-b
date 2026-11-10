@@ -1,0 +1,53 @@
+{
+  "timestamp_utc": "2026-11-10T22:50:54Z",
+  "scenario": "business_mix",
+  "model": "closed-loop, no think time",
+  "base_url": "http://127.0.0.1:8082",
+  "users": 12,
+  "requested_duration_s": 45,
+  "actual_duration_s": 45.127,
+  "requests": 4745,
+  "requests_per_second": 105.148,
+  "latency_ms": {
+    "p50": 5.581,
+    "p95": 667.109,
+    "p99": 911.134
+  },
+  "status_counts": {
+    "200": 3792,
+    "201": 953
+  },
+  "x_cache_counts": {
+    "HIT": 2841,
+    "NONE": 1904
+  },
+  "error_ratio": 0.0,
+  "upstream_instances": {
+    "product-67464496f8-rqvvv": 3,
+    "product-67464496f8-7vtgj": 807,
+    "product-67464496f8-nn7rv": 182,
+    "product-67464496f8-nwjbf": 1183,
+    "order-68f779d898-jrctk": 486,
+    "order-68f779d898-n7nsv": 467,
+    "exchange-9b7cb5695-8jt4j": 536,
+    "exchange-9b7cb5695-8vzkb": 415,
+    "product-67464496f8-6km4t": 666
+  },
+  "commits": {
+    "account": "f93623a95f1c2787963af75c5e77065dc4143897",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "88e99200ad4e5a58450b178f293b3ac74c922b5c",
+    "product": "7daad6f862ab12f8955306293dd6b78d6a1de8d5",
+    "order": "d0a05a5b6c4c8e4b24f5fcfdeb3a060523e90688",
+    "exchange": "e353943bdcfabddb475e799786005f275d24b086"
+  },
+  "dirty": {
+    "account": false,
+    "auth": false,
+    "gateway": false,
+    "product": false,
+    "order": false,
+    "exchange": false
+  },
+  "note": "Record replicas, CPU/memory, image IDs and environment alongside this report. Dirty source is not identified by HEAD alone."
+}

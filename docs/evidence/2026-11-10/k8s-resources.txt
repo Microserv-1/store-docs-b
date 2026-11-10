@@ -1,0 +1,94 @@
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                           SELECTOR
+deployment.apps/account      2/2     2            2           2m54s   account      microserv-store/account:local    app=account
+deployment.apps/auth         2/2     2            2           2m53s   auth         microserv-store/auth:local       app=auth
+deployment.apps/exchange     2/2     2            2           2m53s   exchange     microserv-store/exchange:local   app=exchange
+deployment.apps/gateway      5/5     5            5           2m52s   gateway      microserv-store/gateway:local    app=gateway
+deployment.apps/grafana      1/1     1            1           2m42s   grafana      grafana/grafana:12.0.0           app=grafana
+deployment.apps/order        5/5     5            5           2m52s   order        microserv-store/order:local      app=order
+deployment.apps/postgres     1/1     1            1           3m23s   postgres     postgres:16-alpine               app=postgres
+deployment.apps/product      5/5     5            5           2m53s   product      microserv-store/product:local    app=product
+deployment.apps/prometheus   1/1     1            1           2m43s   prometheus   prom/prometheus:v3.4.0           app=prometheus
+deployment.apps/rabbitmq     1/1     1            1           3m23s   rabbitmq     rabbitmq:3.13-alpine             app=rabbitmq
+deployment.apps/redis        1/1     1            1           3m23s   redis        redis:7-alpine                   app=redis
+
+NAME                             READY   STATUS    RESTARTS   AGE     IP            NODE                            NOMINATED NODE   READINESS GATES
+pod/account-794b48b87c-tbll9     1/1     Running   0          2m54s   10.244.0.10   microserv-store-control-plane   <none>           <none>
+pod/account-794b48b87c-wdnjs     1/1     Running   0          2m54s   10.244.0.9    microserv-store-control-plane   <none>           <none>
+pod/auth-77d4954c86-clhnw        1/1     Running   0          2m53s   10.244.0.11   microserv-store-control-plane   <none>           <none>
+pod/auth-77d4954c86-qx8xg        1/1     Running   0          2m53s   10.244.0.12   microserv-store-control-plane   <none>           <none>
+pod/exchange-9b7cb5695-8jt4j     1/1     Running   0          2m53s   10.244.0.16   microserv-store-control-plane   <none>           <none>
+pod/exchange-9b7cb5695-8vzkb     1/1     Running   0          2m53s   10.244.0.15   microserv-store-control-plane   <none>           <none>
+pod/gateway-55dbd844fb-7ljjb     1/1     Running   0          43s     10.244.0.30   microserv-store-control-plane   <none>           <none>
+pod/gateway-55dbd844fb-mdsql     1/1     Running   0          2m52s   10.244.0.19   microserv-store-control-plane   <none>           <none>
+pod/gateway-55dbd844fb-nhdkr     1/1     Running   0          43s     10.244.0.29   microserv-store-control-plane   <none>           <none>
+pod/gateway-55dbd844fb-t2hj8     1/1     Running   0          2m52s   10.244.0.20   microserv-store-control-plane   <none>           <none>
+pod/gateway-55dbd844fb-w7sh9     1/1     Running   0          71s     10.244.0.25   microserv-store-control-plane   <none>           <none>
+pod/grafana-57d696777f-zkfx8     1/1     Running   0          2m42s   10.244.0.22   microserv-store-control-plane   <none>           <none>
+pod/order-68f779d898-6qxps       1/1     Running   0          30s     10.244.0.32   microserv-store-control-plane   <none>           <none>
+pod/order-68f779d898-hjq4h       1/1     Running   0          30s     10.244.0.31   microserv-store-control-plane   <none>           <none>
+pod/order-68f779d898-jrctk       1/1     Running   0          2m52s   10.244.0.17   microserv-store-control-plane   <none>           <none>
+pod/order-68f779d898-kd8v4       1/1     Running   0          30s     10.244.0.33   microserv-store-control-plane   <none>           <none>
+pod/order-68f779d898-n7nsv       1/1     Running   0          2m52s   10.244.0.18   microserv-store-control-plane   <none>           <none>
+pod/postgres-56c465b887-bvxkw    1/1     Running   0          3m23s   10.244.0.8    microserv-store-control-plane   <none>           <none>
+pod/product-67464496f8-6km4t     1/1     Running   0          2m53s   10.244.0.13   microserv-store-control-plane   <none>           <none>
+pod/product-67464496f8-7vtgj     1/1     Running   0          59s     10.244.0.28   microserv-store-control-plane   <none>           <none>
+pod/product-67464496f8-nn7rv     1/1     Running   0          59s     10.244.0.27   microserv-store-control-plane   <none>           <none>
+pod/product-67464496f8-nwjbf     1/1     Running   0          59s     10.244.0.26   microserv-store-control-plane   <none>           <none>
+pod/product-67464496f8-rqvvv     1/1     Running   0          2m53s   10.244.0.14   microserv-store-control-plane   <none>           <none>
+pod/prometheus-f45955b9d-4rpvk   1/1     Running   0          2m43s   10.244.0.21   microserv-store-control-plane   <none>           <none>
+pod/rabbitmq-69f87b8644-ttz2c    1/1     Running   0          3m23s   10.244.0.4    microserv-store-control-plane   <none>           <none>
+pod/redis-f64b8d96b-7cd4v        1/1     Running   0          3m23s   10.244.0.5    microserv-store-control-plane   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+service/account      ClusterIP   10.96.150.195   <none>        8000/TCP   2m54s   app=account
+service/auth         ClusterIP   10.96.206.242   <none>        8000/TCP   2m53s   app=auth
+service/exchange     ClusterIP   10.96.12.49     <none>        8000/TCP   2m53s   app=exchange
+service/gateway      ClusterIP   10.96.11.240    <none>        8000/TCP   2m52s   app=gateway
+service/grafana      ClusterIP   10.96.246.105   <none>        3000/TCP   2m42s   app=grafana
+service/order        ClusterIP   10.96.57.67     <none>        8000/TCP   2m52s   app=order
+service/postgres     ClusterIP   10.96.112.211   <none>        5432/TCP   3m23s   app=postgres
+service/product      ClusterIP   10.96.25.199    <none>        8000/TCP   2m53s   app=product
+service/prometheus   ClusterIP   10.96.175.194   <none>        9090/TCP   2m43s   app=prometheus
+service/rabbitmq     ClusterIP   10.96.245.253   <none>        5672/TCP   3m23s   app=rabbitmq
+service/redis        ClusterIP   10.96.63.254    <none>        6379/TCP   3m23s   app=redis
+
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/account    Deployment/account    cpu: 3%/60%     2         5         2          2m54s
+horizontalpodautoscaler.autoscaling/auth       Deployment/auth       cpu: 2%/60%     2         5         2          2m53s
+horizontalpodautoscaler.autoscaling/exchange   Deployment/exchange   cpu: 21%/60%    2         5         2          2m53s
+horizontalpodautoscaler.autoscaling/gateway    Deployment/gateway    cpu: 25%/60%    2         5         5          2m52s
+horizontalpodautoscaler.autoscaling/order      Deployment/order      cpu: 920%/60%   2         5         5          2m52s
+horizontalpodautoscaler.autoscaling/product    Deployment/product    cpu: 36%/60%    2         5         5          2m53s
+
+NAME                                  MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+poddisruptionbudget.policy/account    1               N/A               1                     2m54s
+poddisruptionbudget.policy/auth       1               N/A               1                     2m53s
+poddisruptionbudget.policy/exchange   1               N/A               1                     2m53s
+poddisruptionbudget.policy/gateway    1               N/A               4                     2m52s
+poddisruptionbudget.policy/order      1               N/A               4                     2m52s
+poddisruptionbudget.policy/product    1               N/A               4                     2m53s
+NAME                         CPU(cores)   MEMORY(bytes)   
+account-794b48b87c-tbll9     3m           57Mi            
+account-794b48b87c-wdnjs     3m           57Mi            
+auth-77d4954c86-clhnw        5m           173Mi           
+auth-77d4954c86-qx8xg        6m           153Mi           
+exchange-9b7cb5695-8jt4j     9m           44Mi            
+exchange-9b7cb5695-8vzkb     17m          46Mi            
+gateway-55dbd844fb-7ljjb     1m           9Mi             
+gateway-55dbd844fb-mdsql     84m          12Mi            
+gateway-55dbd844fb-nhdkr     1m           9Mi             
+gateway-55dbd844fb-t2hj8     1m           14Mi            
+gateway-55dbd844fb-w7sh9     1m           9Mi             
+grafana-57d696777f-zkfx8     2m           95Mi            
+order-68f779d898-6qxps       205m         63Mi            
+order-68f779d898-jrctk       491m         83Mi            
+order-68f779d898-n7nsv       598m         75Mi            
+postgres-56c465b887-bvxkw    142m         91Mi            
+product-67464496f8-6km4t     32m          64Mi            
+product-67464496f8-7vtgj     7m           61Mi            
+product-67464496f8-nn7rv     13m          61Mi            
+product-67464496f8-nwjbf     90m          61Mi            
+product-67464496f8-rqvvv     10m          63Mi            
+prometheus-f45955b9d-4rpvk   3m           27Mi            
+rabbitmq-69f87b8644-ttz2c    853m         205Mi           
+redis-f64b8d96b-7cd4v        11m          8Mi             

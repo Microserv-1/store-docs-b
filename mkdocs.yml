@@ -1,0 +1,25 @@
+site_name: Microserv Store — Pessoa B (Gustavo Ferreira)
+site_url: https://microserv-1.github.io/store-docs-b/
+repo_url: https://github.com/Microserv-1/store-root
+theme:
+  name: material
+  language: pt-BR
+  features: [navigation.sections, content.code.copy]
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Projeto, Equipe e Autoria: index.md
+  - Contratos de API e Câmbio: contracts.md
+  - CI/CD, Kubernetes e Deploy: deploy.md
+  - Gargalos B (Cache Redis e Mensageria): bottlenecks.md
+  - Testes de Carga, HPA e Observabilidade: load-testing.md
+  - Custos, PaaS e SLA: operations.md
+  - Decisões, Revisão Cruzada e Uso de IA: decisions.md
+  - Estado e Evidências Verificáveis: status.md
+  - Apresentação e Defesa: presentation.md

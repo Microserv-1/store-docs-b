@@ -1,0 +1,140 @@
+{
+  "timestamp_utc": "2026-11-10T22:49:34Z",
+  "bottleneck": "B2 - RabbitMQ Asynchronous Order Event Processing & Idempotent Consumer",
+  "base_url": "http://127.0.0.1:8082",
+  "resilience_and_decoupling": {
+    "orders_created_while_consumer_paused": 12,
+    "post_order_latency_while_paused_ms": {
+      "avg": 29.784,
+      "max": 48.159
+    },
+    "first_order_status_while_paused": "PENDING",
+    "queue_depth_while_paused": 14,
+    "orders_caught_up_after_resume": 12,
+    "catchup_duration_ms": 389.83
+  },
+  "idempotency_verification": {
+    "order_id": "9d95802f-c806-4900-b132-4fd33b5e5ce5",
+    "unique_notifications_for_user": 12,
+    "duplicate_deliveries_skipped": 4
+  },
+  "summary_after_catchup_and_replay": {
+    "consumer_active": true,
+    "broker_connected": true,
+    "queue_depth": 0,
+    "user_orders_total": 12,
+    "user_notifications_processed": 12,
+    "user_outbox_pending": 0,
+    "user_duplicate_deliveries_skipped": 4,
+    "notifications": [
+      {
+        "id": "837f82b3-301d-4ce0-9e28-0a84602610e9",
+        "order_id": "9d95802f-c806-4900-b132-4fd33b5e5ce5",
+        "event_id": "e2a135a8-cf8b-4b52-a9df-2c2d0c190c55",
+        "status": "PROCESSED",
+        "message": "Order 9d95802f-c806-4900-b132-4fd33b5e5ce5 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 4,
+        "processed_at": "2026-11-10T22:49:33"
+      },
+      {
+        "id": "43312387-8bb0-430d-bf48-82d8ab683846",
+        "order_id": "52b320a0-190d-46ee-ba63-ce39cee6e06e",
+        "event_id": "f73d8015-e81a-4484-a093-e3db527aa5a3",
+        "status": "PROCESSED",
+        "message": "Order 52b320a0-190d-46ee-ba63-ce39cee6e06e confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:33"
+      },
+      {
+        "id": "0ad0184f-5a20-438e-a8e9-c72becc41c32",
+        "order_id": "af210e2b-cdf2-4087-8eca-1d2921100f98",
+        "event_id": "7abbb0fc-216f-43c5-8b28-16a1776519f3",
+        "status": "PROCESSED",
+        "message": "Order af210e2b-cdf2-4087-8eca-1d2921100f98 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:33"
+      },
+      {
+        "id": "ccea3b26-3f2d-4aac-a07b-6e8d41547af9",
+        "order_id": "bc34d84b-bfc5-4d72-b9a9-dd637b027438",
+        "event_id": "693891b7-7f5c-4976-87e3-09cddfe1e1cd",
+        "status": "PROCESSED",
+        "message": "Order bc34d84b-bfc5-4d72-b9a9-dd637b027438 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:33"
+      },
+      {
+        "id": "35247cb1-4397-4cf4-9415-15ca5d105ce2",
+        "order_id": "83000ec9-854d-4755-8e2c-0bd4047fc995",
+        "event_id": "63f57ebb-66a9-43c1-8d0f-b1e263e2c921",
+        "status": "PROCESSED",
+        "message": "Order 83000ec9-854d-4755-8e2c-0bd4047fc995 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "32dd6233-cfa0-46d2-b70f-d8fe7ea3b134",
+        "order_id": "6216e630-c257-4324-9d78-480677c63185",
+        "event_id": "12dc6e53-c5c4-4a4a-917d-7ba8bd4854a0",
+        "status": "PROCESSED",
+        "message": "Order 6216e630-c257-4324-9d78-480677c63185 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "f839bbf1-6e6d-422a-9380-8dbc62c00bb5",
+        "order_id": "132fa84e-a0f1-45e9-92d5-9e569525af49",
+        "event_id": "5ff3f106-701e-4b84-b0c7-e9ec67434571",
+        "status": "PROCESSED",
+        "message": "Order 132fa84e-a0f1-45e9-92d5-9e569525af49 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "9d641ae7-5c7e-42df-b884-9e9bd7662a87",
+        "order_id": "644c4ba4-0561-47a6-9ca9-d7b35cd30638",
+        "event_id": "9a8375ce-7a56-4ba5-90f7-8cd2f75f2ffe",
+        "status": "PROCESSED",
+        "message": "Order 644c4ba4-0561-47a6-9ca9-d7b35cd30638 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "41459a35-f76c-4611-abab-df3f8be8155f",
+        "order_id": "14a47656-0872-4a0c-961e-d2dc4d9cd4d7",
+        "event_id": "0273984b-de14-42ff-9f53-d1be7287d25d",
+        "status": "PROCESSED",
+        "message": "Order 14a47656-0872-4a0c-961e-d2dc4d9cd4d7 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "d019bf04-bee0-46b3-941e-964a53fa723f",
+        "order_id": "2c2006f9-0c1f-49c5-a5df-98406100bfb6",
+        "event_id": "ebb52114-88ce-478d-8fee-77bfb02b378e",
+        "status": "PROCESSED",
+        "message": "Order 2c2006f9-0c1f-49c5-a5df-98406100bfb6 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "92d77a0a-7a0b-40bc-9183-dbb781894d45",
+        "order_id": "a56997b0-e2cf-40ea-8249-fb3dbd8d4e3e",
+        "event_id": "fa52aae9-c2d0-4864-97df-2f027def764e",
+        "status": "PROCESSED",
+        "message": "Order a56997b0-e2cf-40ea-8249-fb3dbd8d4e3e confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      },
+      {
+        "id": "150f6de3-91cc-4da1-b187-0547a30cc252",
+        "order_id": "65d6ea47-d5a1-4db2-aa93-3810b73adc26",
+        "event_id": "1be66729-c755-41e7-ae7e-6323e1762a97",
+        "status": "PROCESSED",
+        "message": "Order 65d6ea47-d5a1-4db2-aa93-3810b73adc26 confirmed asynchronously (total USD 45.00)",
+        "duplicate_deliveries": 0,
+        "processed_at": "2026-11-10T22:49:34"
+      }
+    ]
+  }
+}

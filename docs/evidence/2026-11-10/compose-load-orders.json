@@ -1,0 +1,43 @@
+{
+  "timestamp_utc": "2026-11-10T22:45:53Z",
+  "scenario": "orders",
+  "model": "closed-loop, no think time",
+  "base_url": "http://127.0.0.1:8080",
+  "users": 8,
+  "requested_duration_s": 15,
+  "actual_duration_s": 15.156,
+  "requests": 341,
+  "requests_per_second": 22.499,
+  "latency_ms": {
+    "p50": 350.413,
+    "p95": 490.653,
+    "p99": 553.399
+  },
+  "status_counts": {
+    "201": 341
+  },
+  "x_cache_counts": {
+    "NONE": 341
+  },
+  "error_ratio": 0.0,
+  "upstream_instances": {
+    "47a91f4d2005": 341
+  },
+  "commits": {
+    "account": "f93623a95f1c2787963af75c5e77065dc4143897",
+    "auth": "d803717bcf09943028f2727cfa97a9515eb17e8d",
+    "gateway": "88e99200ad4e5a58450b178f293b3ac74c922b5c",
+    "product": "7daad6f862ab12f8955306293dd6b78d6a1de8d5",
+    "order": "d0a05a5b6c4c8e4b24f5fcfdeb3a060523e90688",
+    "exchange": "e353943bdcfabddb475e799786005f275d24b086"
+  },
+  "dirty": {
+    "account": false,
+    "auth": false,
+    "gateway": false,
+    "product": false,
+    "order": false,
+    "exchange": false
+  },
+  "note": "Record replicas, CPU/memory, image IDs and environment alongside this report. Dirty source is not identified by HEAD alone."
+}

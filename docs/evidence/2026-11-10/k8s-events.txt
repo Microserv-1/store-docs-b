@@ -1,0 +1,190 @@
+LAST SEEN   TYPE      REASON                         OBJECT                               MESSAGE
+3m23s       Normal    ScalingReplicaSet              deployment/redis                     Scaled up replica set redis-f64b8d96b from 0 to 1
+3m23s       Normal    SuccessfulCreate               replicaset/rabbitmq-69f87b8644       Created pod: rabbitmq-69f87b8644-ttz2c
+3m23s       Normal    SuccessfulCreate               replicaset/postgres-56c465b887       Created pod: postgres-56c465b887-bvxkw
+3m23s       Normal    ScalingReplicaSet              deployment/postgres                  Scaled up replica set postgres-56c465b887 from 0 to 1
+3m23s       Normal    WaitForFirstConsumer           persistentvolumeclaim/account-data   waiting for first consumer to be created before binding
+3m23s       Warning   FailedScheduling               pod/postgres-56c465b887-bvxkw        0/1 nodes are available: 1 node(s) had untolerated taint {node.kubernetes.io/not-ready: }. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+3m23s       Normal    SuccessfulCreate               replicaset/redis-f64b8d96b           Created pod: redis-f64b8d96b-7cd4v
+3m23s       Warning   FailedScheduling               pod/rabbitmq-69f87b8644-ttz2c        0/1 nodes are available: 1 node(s) had untolerated taint {node.kubernetes.io/not-ready: }. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+3m23s       Normal    ScalingReplicaSet              deployment/rabbitmq                  Scaled up replica set rabbitmq-69f87b8644 from 0 to 1
+3m23s       Warning   FailedScheduling               pod/redis-f64b8d96b-7cd4v            0/1 nodes are available: 1 node(s) had untolerated taint {node.kubernetes.io/not-ready: }. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+3m18s       Normal    Pulling                        pod/redis-f64b8d96b-7cd4v            Pulling image "redis:7-alpine"
+3m18s       Normal    Pulling                        pod/rabbitmq-69f87b8644-ttz2c        Pulling image "rabbitmq:3.13-alpine"
+3m18s       Normal    Scheduled                      pod/rabbitmq-69f87b8644-ttz2c        Successfully assigned store/rabbitmq-69f87b8644-ttz2c to microserv-store-control-plane
+3m18s       Normal    Scheduled                      pod/redis-f64b8d96b-7cd4v            Successfully assigned store/redis-f64b8d96b-7cd4v to microserv-store-control-plane
+3m17s       Normal    Provisioning                   persistentvolumeclaim/account-data   External provisioner is provisioning volume for claim "store/account-data"
+3m16s       Normal    ExternalProvisioning           persistentvolumeclaim/account-data   Waiting for a volume to be created either by the external provisioner 'rancher.io/local-path' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+3m14s       Normal    Pulled                         pod/redis-f64b8d96b-7cd4v            Successfully pulled image "redis:7-alpine" in 3.347s (3.347s including waiting). Image size: 16432706 bytes.
+3m14s       Normal    Started                        pod/redis-f64b8d96b-7cd4v            Started container redis
+3m14s       Normal    ProvisioningSucceeded          persistentvolumeclaim/account-data   Successfully provisioned volume pvc-831bbeee-ea5d-4dc7-bcc3-e54824d6a154
+3m14s       Normal    Created                        pod/redis-f64b8d96b-7cd4v            Created container: redis
+3m13s       Normal    Scheduled                      pod/postgres-56c465b887-bvxkw        Successfully assigned store/postgres-56c465b887-bvxkw to microserv-store-control-plane
+3m13s       Normal    Pulling                        pod/postgres-56c465b887-bvxkw        Pulling image "postgres:16-alpine"
+3m9s        Normal    Started                        pod/rabbitmq-69f87b8644-ttz2c        Started container rabbitmq
+3m9s        Normal    Created                        pod/rabbitmq-69f87b8644-ttz2c        Created container: rabbitmq
+3m9s        Normal    Pulled                         pod/rabbitmq-69f87b8644-ttz2c        Successfully pulled image "rabbitmq:3.13-alpine" in 4.793s (8.137s including waiting). Image size: 72296773 bytes.
+3m5s        Normal    Started                        pod/postgres-56c465b887-bvxkw        Started container postgres
+3m5s        Normal    Pulled                         pod/postgres-56c465b887-bvxkw        Successfully pulled image "postgres:16-alpine" in 6.372s (9.558s including waiting). Image size: 116087053 bytes.
+3m5s        Normal    Created                        pod/postgres-56c465b887-bvxkw        Created container: postgres
+3m4s        Warning   Unhealthy                      pod/postgres-56c465b887-bvxkw        Readiness probe failed: /var/run/postgresql:5432 - rejecting connections
+2m54s       Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-tbll9
+2m54s       Normal    SuccessfulCreate               replicaset/account-794b48b87c        Created pod: account-794b48b87c-wdnjs
+2m54s       Normal    ScalingReplicaSet              deployment/account                   Scaled up replica set account-794b48b87c from 0 to 2
+2m54s       Normal    Scheduled                      pod/account-794b48b87c-wdnjs         Successfully assigned store/account-794b48b87c-wdnjs to microserv-store-control-plane
+2m54s       Normal    Scheduled                      pod/account-794b48b87c-tbll9         Successfully assigned store/account-794b48b87c-tbll9 to microserv-store-control-plane
+2m53s       Normal    SuccessfulCreate               replicaset/auth-77d4954c86           Created pod: auth-77d4954c86-qx8xg
+2m53s       Normal    ScalingReplicaSet              deployment/auth                      Scaled up replica set auth-77d4954c86 from 0 to 2
+2m53s       Normal    Scheduled                      pod/exchange-9b7cb5695-8jt4j         Successfully assigned store/exchange-9b7cb5695-8jt4j to microserv-store-control-plane
+2m53s       Normal    SuccessfulCreate               replicaset/auth-77d4954c86           Created pod: auth-77d4954c86-clhnw
+2m53s       Normal    Scheduled                      pod/product-67464496f8-6km4t         Successfully assigned store/product-67464496f8-6km4t to microserv-store-control-plane
+2m53s       Normal    Started                        pod/auth-77d4954c86-qx8xg            Started container auth
+2m53s       Normal    Scheduled                      pod/exchange-9b7cb5695-8vzkb         Successfully assigned store/exchange-9b7cb5695-8vzkb to microserv-store-control-plane
+2m53s       Normal    Created                        pod/auth-77d4954c86-qx8xg            Created container: auth
+2m53s       Normal    Pulled                         pod/auth-77d4954c86-qx8xg            Container image "microserv-store/auth:local" already present on machine
+2m53s       Normal    Scheduled                      pod/auth-77d4954c86-qx8xg            Successfully assigned store/auth-77d4954c86-qx8xg to microserv-store-control-plane
+2m53s       Normal    SuccessfulCreate               replicaset/exchange-9b7cb5695        Created pod: exchange-9b7cb5695-8vzkb
+2m53s       Normal    SuccessfulCreate               replicaset/exchange-9b7cb5695        Created pod: exchange-9b7cb5695-8jt4j
+2m53s       Normal    ScalingReplicaSet              deployment/exchange                  Scaled up replica set exchange-9b7cb5695 from 0 to 2
+2m53s       Normal    ScalingReplicaSet              deployment/product                   Scaled up replica set product-67464496f8 from 0 to 2
+2m53s       Normal    Started                        pod/auth-77d4954c86-clhnw            Started container auth
+2m53s       Normal    Created                        pod/auth-77d4954c86-clhnw            Created container: auth
+2m53s       Normal    Pulled                         pod/auth-77d4954c86-clhnw            Container image "microserv-store/auth:local" already present on machine
+2m53s       Normal    Scheduled                      pod/auth-77d4954c86-clhnw            Successfully assigned store/auth-77d4954c86-clhnw to microserv-store-control-plane
+2m53s       Normal    SuccessfulCreate               replicaset/product-67464496f8        Created pod: product-67464496f8-rqvvv
+2m53s       Normal    SuccessfulCreate               replicaset/product-67464496f8        Created pod: product-67464496f8-6km4t
+2m53s       Normal    Scheduled                      pod/product-67464496f8-rqvvv         Successfully assigned store/product-67464496f8-rqvvv to microserv-store-control-plane
+2m53s       Normal    Started                        pod/account-794b48b87c-wdnjs         Started container account
+2m53s       Normal    Created                        pod/account-794b48b87c-wdnjs         Created container: account
+2m53s       Normal    Pulled                         pod/account-794b48b87c-wdnjs         Container image "microserv-store/account:local" already present on machine
+2m53s       Normal    Started                        pod/account-794b48b87c-tbll9         Started container account
+2m53s       Normal    Created                        pod/account-794b48b87c-tbll9         Created container: account
+2m53s       Normal    Pulled                         pod/account-794b48b87c-tbll9         Container image "microserv-store/account:local" already present on machine
+2m52s       Normal    Pulled                         pod/exchange-9b7cb5695-8jt4j         Container image "microserv-store/exchange:local" already present on machine
+2m52s       Normal    Created                        pod/exchange-9b7cb5695-8jt4j         Created container: exchange
+2m52s       Normal    Scheduled                      pod/gateway-55dbd844fb-t2hj8         Successfully assigned store/gateway-55dbd844fb-t2hj8 to microserv-store-control-plane
+2m52s       Normal    Pulled                         pod/gateway-55dbd844fb-t2hj8         Container image "microserv-store/gateway:local" already present on machine
+2m52s       Normal    Created                        pod/gateway-55dbd844fb-t2hj8         Created container: gateway
+2m52s       Normal    Pulled                         pod/order-68f779d898-jrctk           Container image "microserv-store/order:local" already present on machine
+2m52s       Normal    Created                        pod/product-67464496f8-rqvvv         Created container: product
+2m52s       Normal    Started                        pod/product-67464496f8-rqvvv         Started container product
+2m52s       Normal    Started                        pod/exchange-9b7cb5695-8vzkb         Started container exchange
+2m52s       Normal    Started                        pod/product-67464496f8-6km4t         Started container product
+2m52s       Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-mdsql
+2m52s       Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-t2hj8
+2m52s       Normal    Created                        pod/product-67464496f8-6km4t         Created container: product
+2m52s       Normal    Created                        pod/gateway-55dbd844fb-mdsql         Created container: gateway
+2m52s       Normal    Pulled                         pod/gateway-55dbd844fb-mdsql         Container image "microserv-store/gateway:local" already present on machine
+2m52s       Normal    ScalingReplicaSet              deployment/gateway                   Scaled up replica set gateway-55dbd844fb from 0 to 2
+2m52s       Normal    Pulled                         pod/product-67464496f8-6km4t         Container image "microserv-store/product:local" already present on machine
+2m52s       Normal    Created                        pod/order-68f779d898-jrctk           Created container: order
+2m52s       Normal    Pulled                         pod/product-67464496f8-rqvvv         Container image "microserv-store/product:local" already present on machine
+2m52s       Normal    Scheduled                      pod/order-68f779d898-jrctk           Successfully assigned store/order-68f779d898-jrctk to microserv-store-control-plane
+2m52s       Normal    Started                        pod/exchange-9b7cb5695-8jt4j         Started container exchange
+2m52s       Normal    Pulled                         pod/exchange-9b7cb5695-8vzkb         Container image "microserv-store/exchange:local" already present on machine
+2m52s       Normal    Scheduled                      pod/gateway-55dbd844fb-mdsql         Successfully assigned store/gateway-55dbd844fb-mdsql to microserv-store-control-plane
+2m52s       Normal    Created                        pod/exchange-9b7cb5695-8vzkb         Created container: exchange
+2m52s       Normal    Started                        pod/order-68f779d898-jrctk           Started container order
+2m52s       Normal    ScalingReplicaSet              deployment/order                     Scaled up replica set order-68f779d898 from 0 to 2
+2m52s       Normal    SuccessfulCreate               replicaset/order-68f779d898          Created pod: order-68f779d898-n7nsv
+2m52s       Normal    SuccessfulCreate               replicaset/order-68f779d898          Created pod: order-68f779d898-jrctk
+2m52s       Normal    Started                        pod/order-68f779d898-n7nsv           Started container order
+2m52s       Normal    Created                        pod/order-68f779d898-n7nsv           Created container: order
+2m52s       Normal    Pulled                         pod/order-68f779d898-n7nsv           Container image "microserv-store/order:local" already present on machine
+2m52s       Normal    Scheduled                      pod/order-68f779d898-n7nsv           Successfully assigned store/order-68f779d898-n7nsv to microserv-store-control-plane
+2m51s       Normal    Started                        pod/gateway-55dbd844fb-mdsql         Started container gateway
+2m51s       Normal    Started                        pod/gateway-55dbd844fb-t2hj8         Started container gateway
+2m49s       Warning   Unhealthy                      pod/auth-77d4954c86-clhnw            Startup probe failed: Get "http://10.244.0.11:8000/health-check": dial tcp 10.244.0.11:8000: connect: connection refused
+2m47s       Warning   Unhealthy                      pod/auth-77d4954c86-qx8xg            Startup probe failed: Get "http://10.244.0.12:8000/health-check": dial tcp 10.244.0.12:8000: connect: connection refused
+2m43s       Normal    Scheduled                      pod/prometheus-f45955b9d-4rpvk       Successfully assigned store/prometheus-f45955b9d-4rpvk to microserv-store-control-plane
+2m43s       Normal    ScalingReplicaSet              deployment/prometheus                Scaled up replica set prometheus-f45955b9d from 0 to 1
+2m43s       Normal    SuccessfulCreate               replicaset/prometheus-f45955b9d      Created pod: prometheus-f45955b9d-4rpvk
+2m42s       Normal    Scheduled                      pod/grafana-57d696777f-zkfx8         Successfully assigned store/grafana-57d696777f-zkfx8 to microserv-store-control-plane
+2m42s       Normal    Pulling                        pod/grafana-57d696777f-zkfx8         Pulling image "grafana/grafana:12.0.0"
+2m42s       Normal    Pulling                        pod/prometheus-f45955b9d-4rpvk       Pulling image "prom/prometheus:v3.4.0"
+2m42s       Normal    ScalingReplicaSet              deployment/grafana                   Scaled up replica set grafana-57d696777f from 0 to 1
+2m42s       Normal    SuccessfulCreate               replicaset/grafana-57d696777f        Created pod: grafana-57d696777f-zkfx8
+2m39s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/account      failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m39s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/account      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m38s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/auth         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m38s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/exchange     failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m38s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/exchange     invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m38s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/product      failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m38s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/product      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m38s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/auth         failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m37s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/order        failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m37s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/order        invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m37s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/gateway      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m37s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/gateway      failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server could not find the requested resource (get pods.metrics.k8s.io)
+2m36s       Normal    Pulled                         pod/prometheus-f45955b9d-4rpvk       Successfully pulled image "prom/prometheus:v3.4.0" in 5.866s (5.867s including waiting). Image size: 119912915 bytes.
+2m36s       Normal    Created                        pod/prometheus-f45955b9d-4rpvk       Created container: prometheus
+2m36s       Normal    Started                        pod/prometheus-f45955b9d-4rpvk       Started container prometheus
+2m28s       Normal    Created                        pod/grafana-57d696777f-zkfx8         Created container: grafana
+2m28s       Normal    Pulled                         pod/grafana-57d696777f-zkfx8         Successfully pulled image "grafana/grafana:12.0.0" in 9.301s (15.05s including waiting). Image size: 186512938 bytes.
+2m28s       Normal    Started                        pod/grafana-57d696777f-zkfx8         Started container grafana
+2m27s       Warning   Unhealthy                      pod/grafana-57d696777f-zkfx8         Readiness probe failed: Get "http://10.244.0.22:3000/api/health": dial tcp 10.244.0.22:3000: connect: connection refused
+2m10s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/account      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m10s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/auth         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m10s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/account      failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m10s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/auth         failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m9s        Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/exchange     invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m9s        Warning   FailedGetResourceMetric        horizontalpodautoscaler/exchange     failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m9s        Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/product      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m9s        Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/order        invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m9s        Warning   FailedGetResourceMetric        horizontalpodautoscaler/order        failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m9s        Warning   FailedGetResourceMetric        horizontalpodautoscaler/product      failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m8s        Warning   FailedGetResourceMetric        horizontalpodautoscaler/gateway      failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+2m8s        Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/gateway      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+71s         Normal    Created                        pod/gateway-55dbd844fb-w7sh9         Created container: gateway
+71s         Normal    Started                        pod/gateway-55dbd844fb-w7sh9         Started container gateway
+71s         Normal    SuccessfulRescale              horizontalpodautoscaler/gateway      New size: 3; reason: cpu resource utilization (percentage of request) above target
+71s         Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-w7sh9
+71s         Normal    ScalingReplicaSet              deployment/gateway                   Scaled up replica set gateway-55dbd844fb from 2 to 3
+71s         Normal    Scheduled                      pod/gateway-55dbd844fb-w7sh9         Successfully assigned store/gateway-55dbd844fb-w7sh9 to microserv-store-control-plane
+71s         Normal    Pulled                         pod/gateway-55dbd844fb-w7sh9         Container image "microserv-store/gateway:local" already present on machine
+59s         Normal    SuccessfulCreate               replicaset/product-67464496f8        Created pod: product-67464496f8-7vtgj
+59s         Normal    SuccessfulCreate               replicaset/product-67464496f8        Created pod: product-67464496f8-nwjbf
+59s         Normal    SuccessfulRescale              horizontalpodautoscaler/product      New size: 5; reason: cpu resource utilization (percentage of request) above target
+59s         Normal    Scheduled                      pod/product-67464496f8-nwjbf         Successfully assigned store/product-67464496f8-nwjbf to microserv-store-control-plane
+59s         Normal    ScalingReplicaSet              deployment/product                   Scaled up replica set product-67464496f8 from 2 to 5
+59s         Normal    Scheduled                      pod/product-67464496f8-nn7rv         Successfully assigned store/product-67464496f8-nn7rv to microserv-store-control-plane
+59s         Normal    SuccessfulCreate               replicaset/product-67464496f8        Created pod: product-67464496f8-nn7rv
+59s         Normal    Scheduled                      pod/product-67464496f8-7vtgj         Successfully assigned store/product-67464496f8-7vtgj to microserv-store-control-plane
+58s         Normal    Created                        pod/product-67464496f8-7vtgj         Created container: product
+58s         Normal    Started                        pod/product-67464496f8-7vtgj         Started container product
+58s         Normal    Created                        pod/product-67464496f8-nwjbf         Created container: product
+58s         Normal    Pulled                         pod/product-67464496f8-nwjbf         Container image "microserv-store/product:local" already present on machine
+58s         Normal    Started                        pod/product-67464496f8-nn7rv         Started container product
+58s         Normal    Created                        pod/product-67464496f8-nn7rv         Created container: product
+58s         Normal    Pulled                         pod/product-67464496f8-nn7rv         Container image "microserv-store/product:local" already present on machine
+58s         Normal    Started                        pod/product-67464496f8-nwjbf         Started container product
+58s         Normal    Pulled                         pod/product-67464496f8-7vtgj         Container image "microserv-store/product:local" already present on machine
+43s         Normal    Scheduled                      pod/gateway-55dbd844fb-7ljjb         Successfully assigned store/gateway-55dbd844fb-7ljjb to microserv-store-control-plane
+43s         Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-nhdkr
+43s         Normal    ScalingReplicaSet              deployment/gateway                   Scaled up replica set gateway-55dbd844fb from 3 to 5
+43s         Normal    SuccessfulRescale              horizontalpodautoscaler/gateway      New size: 5; reason: cpu resource utilization (percentage of request) above target
+43s         Normal    SuccessfulCreate               replicaset/gateway-55dbd844fb        Created pod: gateway-55dbd844fb-7ljjb
+43s         Normal    Scheduled                      pod/gateway-55dbd844fb-nhdkr         Successfully assigned store/gateway-55dbd844fb-nhdkr to microserv-store-control-plane
+42s         Normal    Pulled                         pod/gateway-55dbd844fb-7ljjb         Container image "microserv-store/gateway:local" already present on machine
+42s         Normal    Created                        pod/gateway-55dbd844fb-nhdkr         Created container: gateway
+42s         Normal    Started                        pod/gateway-55dbd844fb-nhdkr         Started container gateway
+42s         Normal    Pulled                         pod/gateway-55dbd844fb-nhdkr         Container image "microserv-store/gateway:local" already present on machine
+42s         Normal    Started                        pod/gateway-55dbd844fb-7ljjb         Started container gateway
+42s         Normal    Created                        pod/gateway-55dbd844fb-7ljjb         Created container: gateway
+30s         Normal    SuccessfulRescale              horizontalpodautoscaler/order        New size: 5; reason: cpu resource utilization (percentage of request) above target
+30s         Normal    Scheduled                      pod/order-68f779d898-kd8v4           Successfully assigned store/order-68f779d898-kd8v4 to microserv-store-control-plane
+30s         Normal    ScalingReplicaSet              deployment/order                     Scaled up replica set order-68f779d898 from 2 to 5
+30s         Normal    SuccessfulCreate               replicaset/order-68f779d898          Created pod: order-68f779d898-kd8v4
+30s         Normal    Scheduled                      pod/order-68f779d898-6qxps           Successfully assigned store/order-68f779d898-6qxps to microserv-store-control-plane
+30s         Normal    Scheduled                      pod/order-68f779d898-hjq4h           Successfully assigned store/order-68f779d898-hjq4h to microserv-store-control-plane
+30s         Normal    SuccessfulCreate               replicaset/order-68f779d898          Created pod: order-68f779d898-6qxps
+30s         Normal    SuccessfulCreate               replicaset/order-68f779d898          Created pod: order-68f779d898-hjq4h
+29s         Normal    Started                        pod/order-68f779d898-hjq4h           Started container order
+29s         Normal    Started                        pod/order-68f779d898-6qxps           Started container order
+29s         Normal    Pulled                         pod/order-68f779d898-kd8v4           Container image "microserv-store/order:local" already present on machine
+29s         Normal    Created                        pod/order-68f779d898-kd8v4           Created container: order
+29s         Normal    Started                        pod/order-68f779d898-kd8v4           Started container order
+29s         Normal    Created                        pod/order-68f779d898-hjq4h           Created container: order
+29s         Normal    Pulled                         pod/order-68f779d898-hjq4h           Container image "microserv-store/order:local" already present on machine
+29s         Normal    Pulled                         pod/order-68f779d898-6qxps           Container image "microserv-store/order:local" already present on machine
+29s         Normal    Created                        pod/order-68f779d898-6qxps           Created container: order

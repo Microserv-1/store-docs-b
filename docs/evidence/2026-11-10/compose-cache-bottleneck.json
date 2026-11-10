@@ -1,0 +1,107 @@
+{
+  "timestamp_utc": "2026-11-10T22:44:55Z",
+  "bottleneck": "B1 - Redis Cache-Aside on Product Service",
+  "base_url": "http://127.0.0.1:8080",
+  "functional_checks": {
+    "first_read_x_cache": "MISS",
+    "second_read_x_cache": "HIT",
+    "delete_status": 204,
+    "read_after_delete_status": 404
+  },
+  "benchmarks": {
+    "product_detail": {
+      "uncached": {
+        "mode": "uncached_db_bypass",
+        "requests": 240,
+        "concurrency": 8,
+        "duration_s": 0.701,
+        "requests_per_second": 342.57,
+        "latency_ms": {
+          "avg": 23.075,
+          "p50": 22.076,
+          "p95": 35.013,
+          "p99": 38.875
+        },
+        "x_cache_counts": {
+          "BYPASS": 240
+        },
+        "status_counts": {
+          "200": 240
+        }
+      },
+      "cached": {
+        "mode": "redis_cache_aside",
+        "requests": 240,
+        "concurrency": 8,
+        "duration_s": 0.355,
+        "requests_per_second": 676.07,
+        "latency_ms": {
+          "avg": 11.647,
+          "p50": 10.438,
+          "p95": 16.826,
+          "p99": 40.858
+        },
+        "x_cache_counts": {
+          "HIT": 240
+        },
+        "status_counts": {
+          "200": 240
+        }
+      },
+      "rps_speedup_ratio": 1.97,
+      "p95_reduction_pct": 51.94
+    },
+    "product_list": {
+      "uncached": {
+        "mode": "uncached_db_bypass",
+        "requests": 240,
+        "concurrency": 8,
+        "duration_s": 0.799,
+        "requests_per_second": 300.51,
+        "latency_ms": {
+          "avg": 26.347,
+          "p50": 26.237,
+          "p95": 36.134,
+          "p99": 44.619
+        },
+        "x_cache_counts": {
+          "BYPASS": 240
+        },
+        "status_counts": {
+          "200": 240
+        }
+      },
+      "cached": {
+        "mode": "redis_cache_aside",
+        "requests": 240,
+        "concurrency": 8,
+        "duration_s": 0.366,
+        "requests_per_second": 655.38,
+        "latency_ms": {
+          "avg": 12.067,
+          "p50": 11.598,
+          "p95": 18.409,
+          "p99": 22.358
+        },
+        "x_cache_counts": {
+          "HIT": 240
+        },
+        "status_counts": {
+          "200": 240
+        }
+      },
+      "rps_speedup_ratio": 2.18,
+      "p95_reduction_pct": 49.05
+    }
+  },
+  "service_cache_stats": {
+    "cache_enabled": true,
+    "redis_connected": true,
+    "ttl_seconds": 120,
+    "hits": 483,
+    "misses": 3,
+    "bypasses": 480,
+    "evictions": 17,
+    "hit_ratio": 0.9938
+  }
+}

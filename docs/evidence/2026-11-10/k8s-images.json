@@ -1,0 +1,44 @@
+[
+  {
+    "RepoTags": [
+      "microserv-store/account:local"
+    ],
+    "Id": "sha256:e5a9b5428a65e003402d561a81f849b54ed2f1a7b6910c973cf64915fd4f85da",
+    "Created": "2026-11-10T19:35:35.124888015-03:00"
+  },
+  {
+    "RepoTags": [
+      "microserv-store/auth:local"
+    ],
+    "Id": "sha256:68ff44491822fa39d414e6f694c29cb64530f24fefff9e15b611f31bee2a1bd9",
+    "Created": "2026-11-10T19:36:01.576844549-03:00"
+  },
+  {
+    "RepoTags": [
+      "microserv-store/gateway:local"
+    ],
+    "Id": "sha256:a5093309bfa84bd3750f4a994b435b060555eb122d6710a61282a81bdc501fa4",
+    "Created": "2026-11-10T19:36:33.488412152-03:00"
+  },
+  {
+    "RepoTags": [
+      "microserv-store/product:local"
+    ],
+    "Id": "sha256:51260f039451ec71934f7661661c66dac55e7c5fb1bad2da3bfd2c8d45b15b94",
+    "Created": "2026-11-10T19:44:36.898982792-03:00"
+  },
+  {
+    "RepoTags": [
+      "microserv-store/order:local"
+    ],
+    "Id": "sha256:18214bf24e234bce7b3c41c7d1f504b0da777a193cf86b0e9fa04bd25340aef0",
+    "Created": "2026-11-10T19:35:40.571536518-03:00"
+  },
+  {
+    "RepoTags": [
+      "microserv-store/exchange:local"
+    ],
+    "Id": "sha256:041538c0a882481c3abb9ae264b56d9b353a4008cd41ba3c8425ece1c7ef2515",
+    "Created": "2026-11-10T19:35:24.409907799-03:00"
+  }
+]
