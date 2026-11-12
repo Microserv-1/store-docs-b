@@ -1,3 +1,11 @@
+# Estado atual — 12/11/2026
+
+Implementação do handoff de B: Secrets isolados por serviço, DNS reduzido em Product/Order, ACK após persistência, publisher confirms, requeue e controle global com opt-in. Exchange mantém seu código de integração; apenas o estágio Test foi alterado.
+
+Os SHAs e testes desta rodada estão no [registro do handoff](handoff-2026-11-12.md): 9 testes unitários, smoke, 40 verificações integradas e resiliência com Redis/RabbitMQ reais passaram em Compose isolado. Compilação no Jenkins, Kubernetes com as imagens novas e EKS/RDS/TLS permanecem pendentes. Os relatórios abaixo são históricos de 10/11/2026, preservados sem reexecução nesta rodada; não comprovam os commits novos nem garantia de exatamente uma vez.
+
+---
+
 # Estado das Entregas e Evidências Medicas (Pessoa B)
 
 Registro consolidado em **10/11/2026** por **Gustavo Lima Affonso Ferreira (Pessoa B)**. Todas as medições abaixo foram executadas contra os **6 microsserviços reais integrados** (`account`, `auth`, `gateway`, `product`, `order`, `exchange`) mais `PostgreSQL 16`, `Redis 7`, `RabbitMQ 3.13`, `Prometheus` e `Grafana`.
