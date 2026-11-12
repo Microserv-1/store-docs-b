@@ -2,12 +2,14 @@
 
 Todos os serviços da Pessoa B seguem rigorosamente os contratos de borda definidos no Gateway (`store-gateway`) e no serviço de autenticação (`store-auth`), escutando na porta `8000` dentro da rede interna e validando o token JWT `HS256` (`iss="store-auth"`, `aud="store-api"`, `sub=<account_uuid>`).
 
+O header `X-Account-ID` não substitui a validação JWT nos próprios serviços. Replay exige propriedade do pedido. O caminho canônico de câmbio permanece `/exchanges/{from}/{to}`.
+
 ## Cabeçalhos e Rotas Operacionais Comuns
 
 Todos os 3 serviços (`product`, `order`, `exchange`) implementam:
 
 - `GET /health-check` -> `200 {"status": "ok", "service": "<nome>"}`
-- `GET /ready` -> `200` quando dependências críticas (PostgreSQL/Redis/RabbitMQ) estão acessíveis, ou `503` caso contrário
+- `GET /ready` -> Product/Order verificam o banco e informam `redis_connected`/`broker_connected`; falha de cache/broker pode retornar HTTP 200 com o indicador falso, preservando fallback/outbox. Não interpretar HTTP 200 como todas as dependências saudáveis.
 - `GET /metrics` -> métricas Prometheus (`http_requests_total`, histogramas de latência e métricas customizadas de cache/mensageria/câmbio)
 - Cabeçalhos de resposta em todas as chamadas: `X-Request-ID` e `X-Served-By` (identificando o pod/container que processou a requisição)
 
@@ -25,7 +27,7 @@ Responsável pelo catálogo de produtos em **USD** e pelo tratamento do **Gargal
 | `GET` | `/products` | `200 OK` | Lista catálogo (suporta filtro `?name=` com `ILIKE` case-insensitive) usando Cache-Aside no Redis |
 | `GET` | `/products/{id}` | `200 OK` / `404` | Consulta produto por UUID usando Cache-Aside no Redis (`X-Cache: HIT\|MISS\|BYPASS`) |
 | `DELETE` | `/products/{id}` | `204 No Content` / `404` | Remove produto do PostgreSQL e invalida imediatamente o item e as listagens no Redis |
-| `GET` | `/products/cache/stats` | `200 OK` | Retorna contadores de `hits`, `misses`, `invalidations`, `bypasses`, `hit_ratio` e `ttl_seconds` |
+| `GET` | `/products/cache/stats` | `200 OK` | Retorna contadores de `hits`, `misses`, `evictions`, `bypasses`, `hit_ratio` e `ttl_seconds` |
 
 ### Exemplo de Payload e Resposta (`POST /products`)
 
@@ -91,7 +93,7 @@ Responsável pela criação e consulta de pedidos vinculados ao `id_account` aut
 - **Validação de Produtos**: Em `POST /orders`, cada `id_product` é consultado em `store-product` repassando o header `Authorization: Bearer <token>`. Se qualquer produto não existir (`404`), o pedido é rejeitado com `400 Bad Request`.
 - **Armazenamento Canônico em USD**: O preço unitário e o total do pedido são calculados com `Decimal` (`ROUND_HALF_UP`, 2 casas decimais) e persistidos em **USD** no PostgreSQL.
 - **Isolamento por Usuário**: `GET /orders` retorna apenas os pedidos cujo `id_account` coincide com o `sub` do JWT. `GET /orders/{id}` retorna `404 Not Found` caso o pedido pertença a outra conta.
-- **Conversão On-the-Fly sem Mutação**: `GET /orders/{id}?currency=BRL` consulta `GET /exchanges/USD/BRL`, aplica a taxa `sell` sobre os itens e sobre o total com arredondamento `ROUND_HALF_UP` (2 casas decimais) e retorna `currency="BRL"` e `exchange_rate=<sell>`, **sem alterar o valor em USD salvo no banco**. Moedas inválidas retornam `422`.
+- **Conversão On-the-Fly sem Mutação**: `GET /orders/{id}?currency=BRL` consulta `GET /exchanges/USD/BRL`, aplica a taxa `sell` em cada item e soma os itens convertidos para obter o total com arredondamento `ROUND_HALF_UP` (2 casas decimais) e retorna `currency="BRL"`, **sem alterar o valor em USD salvo no banco**. Moedas inválidas retornam `422`.
 - **Mensageria Assíncrona e Idempotência**: `POST /orders` grava o evento `order.created` em tabela outbox (`order_outbox_events`) e publica na fila durável `order.events` do RabbitMQ (com Dead-Letter Queue `order.events.dlq`). O worker consumidor processa o evento de forma **idempotente por `order_id`**, registrando a notificação em `order_notifications` sem duplicar linhas em caso de reentrega.
 
 ### Endpoints
@@ -104,4 +106,4 @@ Responsável pela criação e consulta de pedidos vinculados ao `id_account` aut
 | `GET` | `/orders/{id}/notifications` | `200 OK` / `404` | Lista notificações assíncronas processadas pelo consumidor RabbitMQ para o pedido |
 | `POST` | `/orders/{id}/events/replay` | `200 OK` / `404` | Republica o evento `order.created` na fila RabbitMQ para demonstrar idempotência do consumidor |
 | `GET` | `/orders/events/summary` | `200 OK` | Resumo operacional da fila (`outbox_published`, `notifications_processed`, `queue_depth`, estado do consumidor) |
-| `POST` | `/orders/events/consumer` | `200 OK` | Pausa (`{"enabled": false}`) ou retoma (`{"enabled": true}`) o consumidor interno para demonstração de resiliência |
+| `POST` | `/orders/events/consumer` | `404` por padrão; `200 OK` com `ENABLE_DEMO_CONTROLS=true` | Pausa (`{"enabled": false}`) ou retoma (`{"enabled": true}`) o consumidor interno para demonstração de resiliência |

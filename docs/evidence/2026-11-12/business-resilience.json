@@ -1,0 +1,7 @@
+{
+  "redis_expiration": "real fixture key expired with EXPIRE 1; default service TTL unchanged",
+  "redis_down": "Product returned 200 from database",
+  "rabbitmq_down": "Order returned 201 and outbox remained pending",
+  "rabbitmq_restarted": "Pending event processed and outbox cleared",
+  "limits": "Controlled dependency outages do not prove crash safety between ACK and database commit."
+}
